@@ -13,16 +13,21 @@ var baseUri = "http://pinballmap.com/api/v1/locations/closest_by_lat_lon.json";
 var params = "?lat="+latLon[0]+"&lon="+latLon[1]+"&max_distance=3000";
 var uri = baseUri + params;
 
-/* */
+/* Make call to pinballmap API */
 var xhr = new XMLHttpRequest();
 xhr.open('GET', uri, true);
 xhr.responseType = "json";
 xhr.send();
 xhr.addEventListener("readystatechange", processRequest, false);
 
+/* Process request */
 function processRequest() {
   if (xhr.readyState == 4 && xhr.status == 200) {
-    var response = xhr.response;
-    console.log(response);
+    var location = xhr.response.location;
+    document.getElementById('location-name').innerHTML = location.name;
+    document.getElementById('location-city').innerHTML = location.city + ", " + location.state;
+    console.log(location.name);
+    console.log(location);
+    // console.log(locationName);
   }
 }
