@@ -24,10 +24,16 @@ xhr.addEventListener("readystatechange", processRequest, false);
 function processRequest() {
   if (xhr.readyState == 4 && xhr.status == 200) {
     var location = xhr.response.location;
+    var machineNames = xhr.response.location.machine_names;
     document.getElementById('location-name').innerHTML = location.name;
     document.getElementById('location-city').innerHTML = location.city + ", " + location.state;
-    console.log(location.name);
+    for (var i = 0; i < machineNames.length; i++) {
+      var ul = document.getElementById('machine-list');
+      var li = document.createElement('li');
+      li.appendChild(document.createTextNode(machineNames[i]));
+      li.setAttribute('id', 'machine');
+      ul.appendChild(li);
+    }
     console.log(location);
-    // console.log(locationName);
   }
 }
