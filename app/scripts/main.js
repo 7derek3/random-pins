@@ -43,6 +43,7 @@ function processRequest() {
         li.setAttribute('id', 'machine');
         ul.appendChild(li);
       }
+      document.getElementById('location').setAttribute("style", "visibility:visible;");
     } else {
       callApi();
     }
