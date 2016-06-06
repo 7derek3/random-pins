@@ -47,7 +47,6 @@ function processRequest() {
     } else {
       callApi();
     }
-    console.log(location);
   }
 }
 
