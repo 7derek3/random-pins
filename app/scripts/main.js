@@ -35,6 +35,7 @@ function processRequest() {
     if (machineNames.length > 0) {
       document.getElementById('location-name').innerHTML = location.name;
       document.getElementById('location-city').innerHTML = location.city + ", " + location.state;
+      document.getElementById('machine-count').innerHTML = machineNames.length + " machines";
       for (var i = 0; i < machineNames.length; i++) {
         var ul = document.getElementById('machine-list');
         var li = document.createElement('li');
