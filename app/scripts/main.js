@@ -27,7 +27,7 @@ function callApi() {
   xhr.addEventListener("readystatechange", processRequest, false);
 }
 
-/* Process request */
+/* Process request and insert into HTML */
 function processRequest() {
   if (xhr.readyState == 4 && xhr.status == 200) {
     var location      = xhr.response.location;
